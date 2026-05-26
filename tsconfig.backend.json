@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "noUncheckedIndexedAccess": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "ignoreDeprecations": "6.0",
+    "types": ["node"]
+  },
+  "include": [
+    "backend/auth-service.ts",
+    "backend/database.ts",
+    "backend/demo-password-hasher.ts",
+    "backend/index.ts",
+    "backend/drizzle/apply-schema.ts",
+    "backend/drizzle/schema.ts",
+    "scripts/**/*.ts"
+  ]
+}
