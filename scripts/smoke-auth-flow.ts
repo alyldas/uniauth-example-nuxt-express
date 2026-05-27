@@ -1,9 +1,13 @@
 const baseUrl = process.env.NUXT_ORIGIN ?? 'http://127.0.0.1:3000'
+const proxyRequestHeaders = {
+  'x-uniauth-proxy-request': '1',
+}
 
 let cookie = ''
 
 const signedIn = await request('/api/_uniauth/password-sign-in', {
   method: 'POST',
+  headers: proxyRequestHeaders,
   body: {
     email: 'demo@example.com',
     password: 'demo-password-123',
@@ -16,11 +20,17 @@ const session = await request('/api/_uniauth/session')
 assertStatus(session, 200)
 assertJson(await session.response.text(), 'session')
 
-const refreshed = await request('/api/_uniauth/refresh', { method: 'POST' })
+const refreshed = await request('/api/_uniauth/refresh', {
+  method: 'POST',
+  headers: proxyRequestHeaders,
+})
 assertStatus(refreshed, 200)
 assertJson(await refreshed.response.text(), 'refresh')
 
-const loggedOut = await request('/api/_uniauth/logout', { method: 'POST' })
+const loggedOut = await request('/api/_uniauth/logout', {
+  method: 'POST',
+  headers: proxyRequestHeaders,
+})
 assertStatus(loggedOut, 204)
 
 const afterLogout = await request('/api/_uniauth/session')
@@ -32,12 +42,14 @@ async function request(
   path: string,
   options: {
     readonly method?: 'GET' | 'POST'
+    readonly headers?: Record<string, string>
     readonly body?: Record<string, unknown>
   } = {},
 ): Promise<{ response: Response }> {
   const init: RequestInit = {
     method: options.method ?? 'GET',
     headers: {
+      ...options.headers,
       ...(options.body ? { 'content-type': 'application/json' } : {}),
       ...(cookie ? { cookie } : {}),
     },
