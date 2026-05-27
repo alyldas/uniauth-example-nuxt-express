@@ -21,12 +21,12 @@
     "dev:backend": "NODE_OPTIONS=--preserve-symlinks tsx watch backend/index.ts",
     "dev:nuxt": "NODE_OPTIONS=--preserve-symlinks nuxt dev --host 127.0.0.1 --port 3000",
     "db:apply-schema": "NODE_OPTIONS=--preserve-symlinks tsx backend/drizzle/apply-schema.ts",
-    "smoke:auth": "tsx scripts/smoke-auth-flow.ts",
+    "smoke:auth": "tsx tests/smoke/auth-flow.ts",
     "check": "npm run typecheck && npm test && npm run build",
     "check:live": "npm run check && npm run smoke:auth",
     "build": "NODE_OPTIONS=--preserve-symlinks nuxt build && tsc -p tsconfig.backend.json",
     "typecheck": "nuxt prepare && vue-tsc --noEmit && tsc -p tsconfig.backend.json",
-    "test": "node --test test/*.test.mjs"
+    "test": "node --test tests/unit/*.test.mjs"
   },
   "dependencies": {
     "@alyldas/uniauth-core": "file:../uniauth-core",

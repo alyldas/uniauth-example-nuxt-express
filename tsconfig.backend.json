@@ -20,6 +20,6 @@
     "backend/index.ts",
     "backend/drizzle/apply-schema.ts",
     "backend/drizzle/schema.ts",
-    "scripts/**/*.ts"
+    "tests/smoke/**/*.ts"
   ]
 }

@@ -3,9 +3,9 @@ import { readFile } from 'node:fs/promises'
 import { describe, it } from 'node:test'
 
 const files = {
-  backend: new URL('../backend/index.ts', import.meta.url),
-  nuxtConfig: new URL('../nuxt.config.ts', import.meta.url),
-  smoke: new URL('../scripts/smoke-auth-flow.ts', import.meta.url),
+  backend: new URL('../../backend/index.ts', import.meta.url),
+  nuxtConfig: new URL('../../nuxt.config.ts', import.meta.url),
+  smoke: new URL('../smoke/auth-flow.ts', import.meta.url),
 }
 
 describe('example integration contract', () => {
