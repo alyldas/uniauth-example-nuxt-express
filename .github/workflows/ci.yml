@@ -29,31 +29,31 @@ jobs:
         working-directory: uniauth-example-nuxt-express
     steps:
       - name: Checkout core
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: alyldas/uniauth-core
           path: uniauth-core
       - name: Checkout drizzle
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: alyldas/uniauth-drizzle
           path: uniauth-drizzle
       - name: Checkout express
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: alyldas/uniauth-express
           path: uniauth-express
       - name: Checkout nuxt
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: alyldas/uniauth-nuxt
           path: uniauth-nuxt
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: uniauth-example-nuxt-express
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: npm
@@ -110,31 +110,31 @@ jobs:
       NUXT_ORIGIN: http://127.0.0.1:3000
     steps:
       - name: Checkout core
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: alyldas/uniauth-core
           path: uniauth-core
       - name: Checkout drizzle
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: alyldas/uniauth-drizzle
           path: uniauth-drizzle
       - name: Checkout express
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: alyldas/uniauth-express
           path: uniauth-express
       - name: Checkout nuxt
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: alyldas/uniauth-nuxt
           path: uniauth-nuxt
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: uniauth-example-nuxt-express
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: npm
